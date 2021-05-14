@@ -139,7 +139,7 @@ namespace KantorLr9.ViewModels
 		{
 			var answer = method.GetSolutionWithFixedStep(Function, left, right, step);
 			double realValue = IntegralOfFunction(left, right);
-			FixedStepTableRow fixedStepTableRow = new FixedStepTableRow(_rectangleMethod.ToString(), answer, realValue);
+			FixedStepTableRow fixedStepTableRow = new FixedStepTableRow(method.ToString(), answer, realValue);
 			FixedStepTable.Add(fixedStepTableRow);
 		}
 

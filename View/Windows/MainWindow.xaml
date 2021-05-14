@@ -58,12 +58,12 @@
                         </StackPanel>
                         <Button Content="Очистить таблицу" HorizontalAlignment="Right" Command="{Binding ClearFixedTableCommand}"/>
                     </Grid>
-                    <DataGrid>
+                    <DataGrid ItemsSource="{Binding FixedStepTable}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Метод"/>
-                            <DataGridTextColumn Header="Вычисленное значение"/>
-                            <DataGridTextColumn Header="Точное значение"/>
-                            <DataGridTextColumn Header="Разница" Width="*"/>
+                            <DataGridTextColumn Header="Метод" Binding="{Binding MethodName}"/>
+                            <DataGridTextColumn Header="Вычисленное значение" Binding="{Binding CalculatedValue}"/>
+                            <DataGridTextColumn Header="Точное значение" Binding="{Binding RealValue}"/>
+                            <DataGridTextColumn Header="Разница" Width="*" Binding="{Binding Difference}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
@@ -84,12 +84,12 @@
                             <Button Content="Очистить таблицу" Margin="5,0,0,0" Command="{Binding ClearAutoTableCommand}"/>
                         </StackPanel>
                     </Grid>
-                    <DataGrid>
+                    <DataGrid ItemsSource="{Binding AutoStepTable}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Метод"/>
-                            <DataGridTextColumn Header="Точность"/>
-                            <DataGridTextColumn Header="Вычисленное значение"/>
-                            <DataGridTextColumn Header="Число шагов" Width="*"/>
+                            <DataGridTextColumn Header="Метод" Binding="{Binding MethodName}"/>
+                            <DataGridTextColumn Header="Точность" Binding="{Binding Precision}"/>
+                            <DataGridTextColumn Header="Вычисленное значение" Binding="{Binding CalculatedValue}"/>
+                            <DataGridTextColumn Header="Число шагов" Width="*" Binding="{Binding StepsCount}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </DockPanel>
