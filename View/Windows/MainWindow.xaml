@@ -26,7 +26,7 @@
             <MenuItem Header="Help"/>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
-            <StatusBarItem Content="{Binding}"/>
+            <StatusBarItem Content="{Binding Status}"/>
         </StatusBar>
         <Grid>
             <Grid.RowDefinitions>
@@ -42,9 +42,9 @@
                 <TextBlock Text="Выберите границы интегрирования"/>
                 <StackPanel Orientation="Horizontal" Margin="0,5">
                     <TextBlock Text="От"/>
-                    <TextBox Width="75" Margin="5,0"/>
+                    <TextBox Width="75" Margin="5,0" Text="{Binding Left, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock Text="До" Margin="20,0,0,0"/>
-                    <TextBox Width="75" Margin="5,0,0,0"/>
+                    <TextBox Width="75" Margin="5,0,0,0" Text="{Binding Right, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
             </StackPanel>
             <GridSplitter Grid.Column="1" Grid.Row="1" Width="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="BlueViolet"/>
@@ -52,11 +52,11 @@
                 <DockPanel>
                     <Grid DockPanel.Dock="Top" Margin="0,5">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Шаг"/>
-                            <TextBox Width="75" Margin="5,0"/>
-                            <Button Content="Рассчитать"/>
+                            <TextBlock Text="Число шагов"/>
+                            <TextBox Width="75" Margin="5,0" Text="{Binding CountOfSteps, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Button Content="Рассчитать" Command="{Binding CalculateFixedTableCommand}"/>
                         </StackPanel>
-                        <Button Content="Очистить таблицу" HorizontalAlignment="Right"/>
+                        <Button Content="Очистить таблицу" HorizontalAlignment="Right" Command="{Binding ClearFixedTableCommand}"/>
                     </Grid>
                     <DataGrid>
                         <DataGrid.Columns>
@@ -73,15 +73,15 @@
                     <Grid DockPanel.Dock="Top" Margin="0,5">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Число отрезков"/>
-                            <TextBox Width="75" Margin="5,0"/>
+                            <TextBox Width="75" Margin="5,0" Text="{Binding SegmentsCount, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                             <TextBlock Text="Точность"/>
-                            <TextBox Width="75" Margin="5,0"/>
+                            <TextBox Width="75" Margin="5,0" Text="{Binding Precision, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                            <Button Content="Расчитать"/>
-                            <Button Content="Очистить таблицу" Margin="5,0,0,0"/>
+                            <Button Content="Расчитать" Command="{Binding CalculateAutoStepTableCommand}"/>
+                            <Button Content="Очистить таблицу" Margin="5,0,0,0" Command="{Binding ClearAutoTableCommand}"/>
                         </StackPanel>
                     </Grid>
                     <DataGrid>
